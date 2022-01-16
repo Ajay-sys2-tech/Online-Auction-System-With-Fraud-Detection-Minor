@@ -4,6 +4,7 @@ const mysql = require("mysql");
 const dotenv = require("dotenv");
 const bodyParser=require("body-parser");
 const fileUpload = require('express-fileupload');
+const port = process.env.PORT || 5000;
 
 
 dotenv.config({ path:'./.env'});
@@ -49,6 +50,6 @@ db.connect( (error) => {
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 
-app.listen(5000, () => {
-    console.log("server started on port 5000");
+app.listen(port, () => {
+    console.log(`server started at port ${port}`);
 })
